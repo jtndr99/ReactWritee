@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const mongoose=require('mongoose')
 const dotenv=require('dotenv');
+const authRoute=require('./routes/auth.js');
+
 
 dotenv.config();
+app.use(express.json())
+app.use("/api/auth",authRoute)
 
 const connectDB=async()=>{
     try{
